@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout com CSS Grid - Paleta Roxa e Suplementar</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+
+
+    body {
+      padding: 10px;
+      background-color: #1a0b2e;
+    }
+
+
+    .container {
+      display: grid;
+      min-height: 96vh;
+      gap: 10px;
+      grid-template-columns: 240px repeat(3, 1fr);
+      grid-template-rows: 45px 2fr 1.5fr 1fr;
+      grid-template-areas:
+        "nav     nav      nav      nav"
+        "sidebar main     main     main"
+        "sidebar content1 content2 content3"
+        "sidebar footer   footer   footer";
+    }
+
+
+    .bloco {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+
+    .navbar {
+      grid-area: nav;
+      background-color: #f1e9fb;
+      color: #3b1366;
+    }
+
+
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #7b2cbf;
+      color: #ffffff;
+      align-items: flex-start;
+      padding-top: 15px;
+    }
+
+
+    .main {
+      grid-area: main;
+      background-color: #d0bdf4;
+      color: #2e0854;
+      align-items: flex-start;
+      padding-top: 15px;
+    }
+
+
+    .content-1 {
+      grid-area: content1;
+      background-color: #bfa2db;
+      color: #260542;
+      align-items: flex-start;
+      padding-top: 15px;
+    }
+
+
+    .content-2 {
+      grid-area: content2;
+      background-color: #9d4edd;
+      color: #ffffff;
+      align-items: flex-start;
+      padding-top: 15px;
+    }
+
+
+    .content-3 {
+      grid-area: content3;
+      background-color: #f6c85f;
+      color: #3b1366;
+      align-items: flex-start;
+      padding-top: 15px;
+    }
+
+
+    .footer {
+      grid-area: footer;
+      background-color: #49177a;
+      color: #e8d7ff;
+      align-items: flex-start;
+      padding-top: 15px;
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <div class="container">
+    <header class="bloco navbar">NAVBAR</header>
+    <aside class="bloco sidebar">SIDEBAR</aside>
+    <main class="bloco main">MAIN</main>
+    <section class="bloco content-1">CONTENT 1</section>
+    <section class="bloco content-2">CONTENT 2</section>
+    <section class="bloco content-3">CONTENT 3</section>
+    <footer class="bloco footer">FOOTER</footer>
+  </div>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telas de Acesso</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+
+    body {
+      background: #007bfb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 10px;
+    }
+
+
+    .painel-telas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+
+    .card-celular {
+      position: relative;
+      width: 290px;
+      height: 560px;
+      background: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .card-splash {
+      background: linear-gradient(180deg, #1042f3 0%, #0c61f9 45%, #0093fe 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 65px 24px 30px 24px;
+    }
+
+
+    .topo-azul {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 195px;
+      background: linear-gradient(180deg, #0b41ec 0%, #0d7cfd 100%);
+      border-bottom-left-radius: 50% 30px;
+      border-bottom-right-radius: 50% 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .rodape-azul {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      background: linear-gradient(180deg, #0d7cfd 0%, #0b41ec 100%);
+      border-top-left-radius: 50% 25px;
+      border-top-right-radius: 50% 25px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 18px;
+    }
+
+
+    .emblema-marca {
+      width: 62px;
+      height: 62px;
+      border: 3.5px solid #ffffff;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      line-height: 7px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: -15px;
+    }
+
+
+    .emblema-splash {
+      width: 68px;
+      height: 68px;
+      border: 3.5px solid #ffffff;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      line-height: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+
+    .corpo-formulario {
+      position: relative;
+      z-index: 2;
+      margin-top: 195px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+
+    .corpo-formulario-cadastro {
+      margin-top: 190px;
+      gap: 11px;
+    }
+
+
+    .bloco-campo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1.5px solid #62b5fc;
+      border-radius: 20px;
+      padding: 2px 3px 2px 16px;
+      background: #ffffff;
+      height: 34px;
+    }
+
+
+    .bloco-campo input {
+      border: none;
+      outline: none;
+      width: 75%;
+      font-size: 11px;
+      color: #333333;
+      background: transparent;
+    }
+
+
+    .circulo-icone {
+      width: 26px;
+      height: 26px;
+      background: linear-gradient(180deg, #1080ff 0%, #0060e0 100%);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 11px;
+    }
+
+
+    .linha-opcoes {
+      display: flex;
+      align-items: center;
+      font-size: 9.5px;
+      color: #444444;
+      margin-top: -2px;
+    }
+
+
+    .opcao-caixa {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+
+    .linha-botoes-login {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2px;
+    }
+
+
+    .botao-azul-curto {
+      background: linear-gradient(90deg, #1f3eff 0%, #0d2df5 100%);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 6px 18px;
+      font-size: 10.5px;
+      font-weight: bold;
+    }
+
+
+    .botao-azul-largo {
+      background: linear-gradient(90deg, #1f3eff 0%, #0d2df5 100%);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 7px 24px;
+      font-size: 10.5px;
+      font-weight: bold;
+      align-self: center;
+      margin-top: 4px;
+    }
+
+
+    .texto-esqueci {
+      color: #222222;
+      font-size: 9.5px;
+      font-weight: bold;
+    }
+
+
+    .bloco-social {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+
+    .bloco-social span {
+      font-size: 9px;
+      color: #222222;
+      font-weight: bold;
+    }
+
+
+    .grade-redes {
+      display: flex;
+      gap: 10px;
+    }
+
+
+    .icone-rede-social {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid #7cbcf8;
+      color: #0d82f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+
+    .texto-rodape {
+      color: #ffffff;
+      font-size: 9.5px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+
+    .circulo-flecha {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 13px;
+      height: 13px;
+      border: 1px solid #ffffff;
+      border-radius: 50%;
+      font-size: 8px;
+      margin-left: 2px;
+    }
+
+
+    .bloco-topo-splash {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+
+    .titulo-marca {
+      color: #ffffff;
+      font-size: 15px;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+
+    .slogan-marca {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 8.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+
+    .grupo-botoes-splash {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      align-items: center;
+    }
+
+
+    .botao-branco-pilula {
+      width: 170px;
+      padding: 8px 0;
+      background: #ffffff;
+      color: #222222;
+      border-radius: 18px;
+      font-size: 10.5px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .bloco-biometria {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+
+    .aviso-rapido {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 8.5px;
+    }
+
+
+    .circulo-digital {
+      width: 46px;
+      height: 46px;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      font-size: 20px;
+    }
+
+
+    .legenda-digital {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 8.5px;
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <div class="painel-telas">
+
+
+    <section class="card-celular">
+      <div class="topo-azul">
+        <div class="emblema-marca">
+          <span>v</span>
+          <span>v</span>
+          <span>v</span>
+        </div>
+      </div>
+
+
+      <div class="corpo-formulario">
+        <div class="bloco-campo">
+          <input type="text" placeholder="Nome de Usuário">
+          <div class="circulo-icone">&#128100;</div>
+        </div>
+
+
+        <div class="bloco-campo">
+          <input type="password" placeholder="Senha">
+          <div class="circulo-icone">&#128273;</div>
+        </div>
+
+
+        <div class="linha-opcoes">
+          <label class="opcao-caixa">
+            <input type="checkbox">
+            Lembrar Senha
+          </label>
+        </div>
+
+
+        <div class="linha-botoes-login">
+          <div class="botao-azul-curto">Entrar</div>
+          <span class="texto-esqueci">Esqueceu a Senha?</span>
+        </div>
+
+
+        <div class="bloco-social">
+          <span>Entrar com Redes Sociais</span>
+          <div class="grade-redes">
+            <div class="icone-rede-social">F</div>
+            <div class="icone-rede-social">X</div>
+            <div class="icone-rede-social">in</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="rodape-azul">
+        <div class="texto-rodape">
+          Não tem uma conta? <strong>Cadastre-se</strong>
+          <span class="circulo-flecha">&gt;</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="card-celular card-splash">
+      <div class="bloco-topo-splash">
+        <div class="emblema-splash">
+          <span>v</span>
+          <span>v</span>
+          <span>v</span>
+        </div>
+        <h1 class="titulo-marca">Nome da Empresa</h1>
+        <p class="slogan-marca">Seu Slogan Aqui</p>
+      </div>
+
+
+      <div class="grupo-botoes-splash">
+        <div class="botao-branco-pilula">Entrar</div>
+        <div class="botao-branco-pilula">Cadastre-se</div>
+      </div>
+
+
+      <div class="bloco-biometria">
+        <span class="aviso-rapido">Agora! Login Rápido com Touch ID</span>
+        <div class="circulo-digital">&#9678;</div>
+        <span class="legenda-digital">Usar Touch ID</span>
+      </div>
+    </section>
+
+
+    <section class="card-celular">
+      <div class="topo-azul">
+        <div class="emblema-marca">
+          <span>v</span>
+          <span>v</span>
+          <span>v</span>
+        </div>
+      </div>
+
+
+      <div class="corpo-formulario corpo-formulario-cadastro">
+        <div class="bloco-campo">
+          <input type="text" placeholder="Nome de Usuário">
+          <div class="circulo-icone">&#128100;</div>
+        </div>
+
+
+        <div class="bloco-campo">
+          <input type="email" placeholder="E-mail">
+          <div class="circulo-icone">&#9993;</div>
+        </div>
+
+
+        <div class="bloco-campo">
+          <input type="password" placeholder="Senha">
+          <div class="circulo-icone">&#128273;</div>
+        </div>
+
+
+        <div class="linha-opcoes">
+          <label class="opcao-caixa">
+            <input type="checkbox">
+            Aceitar Termos & Condições
+          </label>
+        </div>
+
+
+        <div class="botao-azul-largo">Cadastre-se</div>
+      </div>
+
+
+      <div class="rodape-azul">
+        <div class="texto-rodape">
+          Já tem uma conta? <strong>Entrar</strong>
+          <span class="circulo-flecha">&gt;</span>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+
+</body>
+
+
+</html>
+
